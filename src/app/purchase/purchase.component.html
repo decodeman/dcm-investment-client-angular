@@ -1,0 +1,23 @@
+<div *ngIf='investor'>
+    {{ investor.name }}
+</div>
+
+
+<div class="cart-item" *ngFor="let tokenMapItem of tokenMap | keyvalue">
+    <span>{{ tokenMapItem.value.symbol }}</span>
+    <span>{{ tokenMapItem.value.id }}</span>
+</div>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="tokenId"> Fund </label>
+        <input id="tokenId" type="text" formControlName="tokenId" />
+    </div>
+
+    <div>
+        <label for="amount"> Amount </label>
+        <input id="amount" type="text" formControlName="amount" />
+    </div>
+
+    <button class="button" type="submit">Purchase</button>
+</form>

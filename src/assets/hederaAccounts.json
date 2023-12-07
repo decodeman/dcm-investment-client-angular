@@ -1,0 +1,12 @@
+[
+  {
+    "account": "x.y.0",
+    "price": 50,
+    "memo": "dooloo"
+  },
+  {
+    "account": "x.y.1",
+    "price": 52,
+    "memo": "witchewaa"
+  }
+]

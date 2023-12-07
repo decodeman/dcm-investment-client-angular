@@ -1,0 +1,14 @@
+<p>investment-list works!</p>
+
+
+<!-- <ul>
+    <li *ngFor="let investment of investments2 | async">
+        {{investment.id}} - {{investment.name}}
+    </li>
+</ul> -->
+<ul>
+    <li *ngFor="let investment of investments$ | async">
+        {{investment.id}} - {{investment.name}}
+    </li>
+</ul>
+

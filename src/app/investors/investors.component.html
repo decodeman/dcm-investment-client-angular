@@ -1,0 +1,16 @@
+<div class="investors">
+    <div class="investor-card" *ngFor="let investor of investors | async">
+        <span>{{ investor.name }}</span>
+
+        <div class="investor-tokens">
+            <div class="investor-token" *ngFor="let token of investor.tokens">
+                <span>{{ token.symbol }}: </span>
+                <span>{{ token.balance/100 | currency }}</span>
+            </div>
+        </div>
+
+        <a class="button purchase-button" [title]="investor.name + ' purchase'" [routerLink]="['/purchase', investor.account]">
+            Purchase
+        </a>
+    </div>
+</div>

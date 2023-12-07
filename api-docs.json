@@ -1,0 +1,197 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "OpenAPI definition",
+        "version": "v0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080/api",
+            "description": "Generated server url"
+        }
+    ],
+    "paths": {
+        "/styles": {
+            "get": {
+                "tags": [
+                    "greeting-controller"
+                ],
+                "operationId": "styles",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Style"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/stylesCount": {
+            "get": {
+                "tags": [
+                    "greeting-controller"
+                ],
+                "operationId": "stylesCount",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/style": {
+            "get": {
+                "tags": [
+                    "greeting-controller"
+                ],
+                "operationId": "style",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Style"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/investments": {
+            "get": {
+                "tags": [
+                    "greeting-controller"
+                ],
+                "operationId": "investments",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Investment"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/greeting": {
+            "get": {
+                "tags": [
+                    "greeting-controller"
+                ],
+                "operationId": "greeting",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "World"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Greeting"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Style": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Investment": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "fullyVetted": {
+                        "type": "boolean"
+                    },
+                    "price": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "style": {
+                        "$ref": "#/components/schemas/Style"
+                    }
+                }
+            },
+            "Greeting": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "content": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
